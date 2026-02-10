@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-
+import Colors from '../../constants/colors';
 
 export default function PrimeButton({ children, onPress }){
     const pressHandler = () => {

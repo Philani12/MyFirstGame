@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Alert, Button, View, TextInput, StyleSheet } from 'react-native';
-import PrimeButton from '../components/PrimeButton';
+import PrimeButton from '../components/ui/PrimeButton';
 
-export default function StartGameScren(){
+export default function StartGameScren({selectedNumber}){
     const [enteredNumber, setEnteredNumber] = useState('');
     const numInputHandler =(enteredText) =>{setEnteredNumber(enteredText);}
     const resetInputHandler = () =>{setEnteredNumber('');}
@@ -13,7 +13,7 @@ export default function StartGameScren(){
                 [{text: 'Alright', style: 'default', onPress: resetInputHandler}]);
             return;
         }
-         console.log('Confirmed!');
+         selectedNumber(chosenNum);
     }
     return(
         <View style={styles.inputContainer}>
