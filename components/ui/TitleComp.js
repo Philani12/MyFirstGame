@@ -1,4 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
+
 export default function TitleComp({children}){
     return(
         <Text style={styles.title}>{children}</Text>

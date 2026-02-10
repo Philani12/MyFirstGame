@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Alert, Button, View, TextInput, StyleSheet } from 'react-native';
 import PrimeButton from '../components/ui/PrimeButton';
+import TitleComp from '../components/ui/TitleComp';
 
-export default function StartGameScren({selectedNumber}){
+export default function StartGameScreen({selectedNumber}){
     const [enteredNumber, setEnteredNumber] = useState('');
     const numInputHandler =(enteredText) =>{setEnteredNumber(enteredText);}
     const resetInputHandler = () =>{setEnteredNumber('');}
@@ -16,6 +17,9 @@ export default function StartGameScren({selectedNumber}){
          selectedNumber(chosenNum);
     }
     return(
+        <View style={styles.rootContainer}>
+            <Text style={{fontSize: 18, color: '#007480', marginBottom: 10}}>Enter a Number</Text>
+            <TitleComp>Guess My Number</TitleComp>
         <View style={styles.inputContainer}>
             <TextInput 
             style={styles.numInput} 
@@ -32,14 +36,20 @@ export default function StartGameScren({selectedNumber}){
                 </View>
             </View>
         </View>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    inputContainer: {
-        justifyContent: 'center',
+    rootContainer: {
+        flex: 1,
         alignItems: 'center',
-        marginTop: 100,
+        justifyContent: 'flex-start', // Adjusted to move components higher
+        marginTop: 50, // Increased margin to raise components higher
+    },
+    inputContainer: {
+        justifyContent: 'flex-start',
+        alignItems: 'center',
         marginHorizontal: 50,
         padding: 15,
         borderRadius: 10,

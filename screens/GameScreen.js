@@ -15,14 +15,15 @@ function generateRandomBetween(min, max, exclude){
 let minBoundary = 1;
 let maxBoundary = 100;
 
-export default function GameScreen({inputNumber}){
+export default function GameScreen({inputNumber, onGameOver}){
     const initialGuess = generateRandomBetween(1, 100, inputNumber);
     const [currentGuess, setCurrentGuess] = useState(initialGuess);
     useEffect(() => {
         if(currentGuess === inputNumber){
             Alert.alert('Game Over!', `The number was ${currentGuess}`, [{text: 'Start New Game', style: 'default'}]);
+            onGameOver();
         }
-    }, [currentGuess, inputNumber]);
+    }, [currentGuess, inputNumber, onGameOver]);
 
     function nextGuessHandler(direction){
         if((direction === 'lower' && currentGuess < inputNumber) || (direction === 'higher' && currentGuess > inputNumber)){
