@@ -29,7 +29,7 @@ export default function StartGameScreen({ selectedNumber }) {
 
     return (
         <View style={styles.rootContainer}>
-            <TitleComp>Guess My Number</TitleComp>
+            <TitleComp>Enter Your Number</TitleComp>
             <View style={styles.inputContainer}>
             <Text style={styles.headerText}>Enter a Number</Text>
                 <TextInput
